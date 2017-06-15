@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=400"/>
+  <script type="text/javascript" src="http://code.angularjs.org/angular-1.0.1.js"></script>
+  <script src="app.js"></script>
+  <title>Delete Tag Events</title>  
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="MyCtrl" >
+        Search Tag Name : <input type="Text" ng-model="tagmask"><br>
+        <button class="test" type="button" ng-click="searchtags()">
+        <span class="ng-scope">Search Tags</span>
+        </button>
+        <div ng-show="TagSearchResult">
+            <hr>
+            Search Tag Results:<br>
+            <div ng-repeat="item in search_items">
+                {{item.Name}}
+            </div>
+            <hr>
+            Start Time : <input type="Text" ng-model="starttime"><br>
+            End Time : <input type="Text" ng-model="endtime"><br>
+            Max delete event count : <input type="Text" ng-model="maxdelevnum" style="width:40px;">
+            <br>
+            <button class="test" type="button" ng-click="delete()">
+            <span class="ng-scope">Delete Events</span>
+            </button>
+        </div>
+        <div ng-show="DelResult">
+            <hr>
+            Delete Event Results:<br>
+            <div ng-repeat="item in del_items">
+                {{item.Content.Name}} 
+                : Deleted {{item.Content.Count}} events
+            </div>
+            <hr>
+        </div>
+    </div>
+</body>
+</html>
